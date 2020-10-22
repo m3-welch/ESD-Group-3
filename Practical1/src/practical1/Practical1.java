@@ -4,6 +4,12 @@ package practical1;
 import java.io.*;
 import java.util.Scanner;
 
+// i hate beans too mcuh
+
+/**
+ *
+ * @author Harrison + Austin
+ */
 public class Practical1 {
 
     /**
