@@ -7,7 +7,7 @@ package practical1;
 
 import java.util.Scanner;
 
-// i hate beans
+// i hate beans too mcuh
 
 /**
  *
