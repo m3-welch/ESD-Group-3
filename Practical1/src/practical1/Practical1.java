@@ -7,7 +7,7 @@ package practical1;
 
 import java.util.Scanner;
 
-beans
+// i hate beans
 
 /**
  *
