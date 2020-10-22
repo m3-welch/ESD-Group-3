@@ -5,9 +5,11 @@
  */
 package practical1;
 
+import java.util.Scanner;
+
 /**
  *
- * @author Helen
+ * @author Harrison
  */
 public class Practical1 {
 
@@ -16,7 +18,9 @@ public class Practical1 {
      */
     public static void main(String[] args) {
         
-        System.out.println("Poggers");
+        Scanner myScan = new Scanner(System.in);
+        System.out.println("Enter side 1");
+        double side1 = Double.parseDouble(myScan.nextLine());
         
     }
     
