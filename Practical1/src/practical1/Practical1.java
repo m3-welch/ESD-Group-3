@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Harrison
+ * @author Harrison + Austin
  */
 public class Practical1 {
 
