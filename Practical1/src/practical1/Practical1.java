@@ -1,26 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Exercise 2
 package practical1;
 
+import java.io.*;
 import java.util.Scanner;
 
-/**
- *
- * @author Harrison
- */
 public class Practical1 {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        
-        Scanner myScan = new Scanner(System.in);
-        System.out.println("Enter side 1");
-        double side1 = Double.parseDouble(myScan.nextLine());
+    public static void main(String[] args)
+    {
+        try {
+            File myObj = new File("grades.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
         
     }
     
