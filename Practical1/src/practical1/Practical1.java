@@ -7,6 +7,8 @@ package practical1;
 
 import java.util.Scanner;
 
+beans
+
 /**
  *
  * @author Harrison + Austin
