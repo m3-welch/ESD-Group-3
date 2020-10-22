@@ -15,25 +15,54 @@ public class Triangle {
     double lSide2;
     double lSide3;
     
-    private double getSide1(){
+    public double getSide1(){
         return lSide1;
     }
-    private void setSide1(double newL){
+    public void setSide1(double newL){
         this.lSide1 = newL;
     }
     
-    private double getSide2(){
-        return lSide1;
+    public double getSide2(){
+        return lSide2;
     }
-    private void setSide2(double newL){
-        this.lSide1 = newL;
+    public void setSide2(double newL){
+        this.lSide2 = newL;
     }
     
-    private double getSide3(){
-        return lSide1;
+    public double getSide3(){
+        return lSide3;
     }
-    private void setSide3(double newL){
-        this.lSide1 = newL;
+    public void setSide3(double newL){
+        this.lSide3 = newL;
+    }
+    
+    private boolean validate() {
+        if (
+                (this.lSide1 + this.lSide2 > this.lSide3)
+                && (this.lSide2 + this.lSide3 > this.lSide1) 
+                && (this.lSide1 + this.lSide3 > this.lSide2)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public String triangleType(double lSide1, double lSide2, double lSide3){
+        String type = "Unknown";
+        
+        if ((lSide1 == lSide2) && (lSide2 == lSide3) && (lSide1 == lSide3)) {
+            type = "Equilateral";
+        } else if ((lSide1 == lSide2) || (lSide2 == lSide3) || (lSide1 == lSide3)) {
+            type = "Isoscoles";
+        } else {
+            type = "Scalene";
+        }
+
+        if (!this.validate()) {
+            type = "Invalid";
+        }
+        
+        return type;
     }
     
 }
