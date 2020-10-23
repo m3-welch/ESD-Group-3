@@ -26,6 +26,28 @@ public class Excercise3 {
             customers.get(i).deposit(customers.get(i).getPercentage(3));
         }
     }
+    
+    public static void menu(BankCustomer user, Scanner myScan) throws Exception {
+        System.out.println("Your balance is: £" + user.getBalance());
+        System.out.println("What would you like to do?");
+        System.out.println("1. Deposit Money");
+        System.out.println("2. Withdraw Money");
+        System.out.println("3. Exit");
+        int option = myScan.nextInt();
+        if (option == 1) {
+            System.out.println("How much would you like to deposit? (E.g. 12.50)");
+            double amount = myScan.nextDouble();
+            System.out.println("Your updated balance is now: £" + user.deposit(amount));
+        } else if (option == 2) {
+            System.out.println("How much would you like to withdraw? (E.g. 12.50)");
+            double amount = myScan.nextDouble();
+            System.out.println("Your updated balance is now: £" + user.withdraw(amount));
+        } else if (option == 3) {
+            System.out.println("Goodbye");
+            System.exit(0);
+        }
+        menu(user, myScan);
+    }
 
     /**
      * @param args the command line arguments
@@ -77,20 +99,7 @@ public class Excercise3 {
             }
         }
         
-        System.out.println("Your balance is: £" + user.getBalance());
-        System.out.println("What would you like to do?");
-        System.out.println("1. Deposit Money");
-        System.out.println("2. Withdraw Money");
-        int option = myScan.nextInt();
-        if (option == 1) {
-            System.out.println("How much would you like to deposit? (E.g. 12.50)");
-            double amount = myScan.nextDouble();
-            System.out.println("Your updated balance is now: £" + user.deposit(amount));
-        } else if (option == 2) {
-            System.out.println("How much would you like to withdraw? (E.g. 12.50)");
-            double amount = myScan.nextDouble();
-            System.out.println("Your updated balance is now: £" + user.withdraw(amount));
-        }
+        menu(user, myScan);
     }
     
 }

@@ -38,7 +38,8 @@ public class BankCustomer {
     
     public double withdraw(double amount) throws Exception {
         if (this.balance - amount < 0) {
-            throw new Exception("You do not have the funds to withdraw that amount.");
+            System.out.println("You do not have the funds to withdraw that amount.");
+            return this.balance;
         }
         this.balance -= amount;
         return this.balance;
@@ -47,5 +48,5 @@ public class BankCustomer {
     public double getPercentage(double percentage) {
         return this.balance / 100 * percentage;
     }
-    
+ 
 }
