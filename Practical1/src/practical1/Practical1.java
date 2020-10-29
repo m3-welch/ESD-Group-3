@@ -2,14 +2,14 @@
 package practical1;
 
 import java.io.*;
-import java.util.*; 
-
-// i hate beans too mcuh
+import java.util.*;
+import java.sql.*;
 
 /**
  *
  * @author Harrison + Austin
  */
+
 public class Practical1 {
 
     /**
@@ -25,10 +25,21 @@ public class Practical1 {
     
     public static void main(String[] args)
     {
+        JDBC JDBC_Obj = new JDBC("");
+        try {
+            JDBC_Obj.connect();
+        }
+        catch (ClassNotFoundException | SQLException e){
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        
+        JDBC_Obj.clear();
+        
         List<Integer> intList = new ArrayList<Integer>();
         
         try {
-            File myObj = new File("C:\\Users\\Helen\\Documents\\NetBeansProjects\\ESD-Group-3\\Practical1\\src\\practical1\\grades.txt");
+            File myObj = new File("grades.txt");
             Scanner myReader = new Scanner(myObj);
             
             while (myReader.hasNextLine()) {
@@ -39,11 +50,33 @@ public class Practical1 {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        
+       
+       
+        // "Insert into Grades VALUES ( ‘Student_1’, <num>);" 
         int size = intList.size();
+        for(int i = 0; i < size; i++) {
+            JDBC_Obj.insert("INSERT INTO Grades (studentID, grades) VALUES('" + String.valueOf(i) + "', '" +  String.valueOf(intList.get(i)) + "')");
+        }
+        
+        ResultSet rs = JDBC_Obj.retrieve("SELECT * FROM grades");
+        
+        int x = 0;
+        try {
+            while (rs.next()) {
+                intList.set(x, rs.getInt(2));
+                x++;
+            }                                    
+        }
+        catch(SQLException e) {
+            
+        }
+         
+        
+        size = intList.size();
         int cat_counts[] = new int[10];
         for(int i = 0; i < size; i++) {
             int temp = intList.get(i);
+            
             if(temp < 11) {
                 cat_counts[0]++;
             }
