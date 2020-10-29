@@ -1,5 +1,12 @@
 package practical1;
 
+// SQL Command to create DB used:
+//
+// CREATE TABLE Grades (
+//    studentID varchar(20) PRIMARY KEY,
+//    grades varchar(20)
+// );
+
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.DriverManager;
